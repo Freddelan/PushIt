@@ -1,0 +1,38 @@
+body {
+    background-image: url("../background102.jpg");
+    background-attachment: fixed;
+}
+
+.messageIn {
+    color: green;
+
+}
+
+.messageOut {
+    color: red;
+}
+
+.contenue {
+    display: inline;
+    align-items: center;
+    border: 2px solid rgb(3, 3, 3);
+    margin-left: 700px;
+    margin-top: 500px;
+    width: 15%;
+    height: 5%;
+    opacity: 0.5;
+}
+
+.envoyer {
+    margin-left: 700px;
+}
+
+#messages {
+    border: 2px solid black;
+    margin-left: 350px;
+    margin-top: -550px;
+
+    width: 400px;
+    height: auto;
+    text-align: center;
+}

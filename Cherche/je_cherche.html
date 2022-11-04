@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="je_cherche.css" />
+    <script type="text/javascript" src="je_cherche.js"></script>
+    <title>Document</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div id="logo">
+      <a href="index.html"><img src="pushit.png" alt="logo du site representant un bouton pour appuyer" ></a>
+      </div>
+
+      <nav class="horizon">
+       <ul> 
+           <li> <a href="Discussion.html">Discussion</a></li>
+           <li> <a href="Ma fiche.html">MA FICHE</a></li>
+       </ul>
+
+      
+      
+      <input id="searchbar" onkeyup="recherche()" type="text"
+      name="search" placeholder="Recherche...">
+    </header>
+<section>
+
+        <div class="vertical">
+        <ul>
+            <li> <a href="Je_cherche.html">Je cherche</a></li>
+            <li> <a href="Je vends">Je vends</a></li>
+            <li> <a href="Je donne">Je donne</a></li>
+            <li> <a href="Je sais faire">Je sais faire</li>
+            <li> <a href="Qui sait faire?">Qui sait faire?</a></li>
+            <li> <a href="J'ai prêté a...">J'ai prêté à ...</a></li>
+            <li> <a href="Photos et Vidéos">Les Photos</a></li>
+        </div>
+    </section> 
+    <label for="je_cherche"></label>
+      <form action="traitement.php" method="post">
+        <textarea id="cherche" name="cherche" rows="30" cols="150">
+        Mettez tout ce que vous recherchez et que vos amis pourrez avoir !!
+        </textarea>
+        <input type="submit" value="envoyer">
+      </form>
+  
+
+  <hr>
+  
+</body>
+     
+
+  </hr>
+
+<script src="index.js"></script>
+  </body>
+</html>

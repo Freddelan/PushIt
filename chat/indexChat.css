@@ -1,0 +1,23 @@
+a {
+    text-decoration: none;
+
+}
+
+body {
+    background-image: url('../background102.jpg');
+    background-attachment: fixed;
+    opacity: 0.9;
+}
+
+.nomInsc {
+    text-transform: uppercase;
+    color: lightgreen;
+    margin-top: 35px;
+}
+
+.titreIChat {
+    text-transform: uppercase;
+    color: chocolate;
+    margin-top: 200px;
+
+}
