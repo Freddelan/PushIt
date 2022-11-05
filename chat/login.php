@@ -17,7 +17,7 @@ $resultat_login = connectDb2($requete_login, false);
         $_SESSION['password'] = $mdp;
         $_SESSION['login'] = $nomUtilisateur;
         $_SESSION['id'] = $resultat_login['ID_inscrit'];
-        header('Location: connexionChat.php');
+        header('Location: indexChat.php');
     }else{
         echo "Mot de passe ou pseudo incorrect";
     }
@@ -35,31 +35,32 @@ $resultat_login = connectDb2($requete_login, false);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <link rel="stylesheet" href="css/login.css">
     <title>Page Login</title>
 </head>
-<body>
+<body><div class="form">
     <form method="post" action="" autocomplete="off">
-        <p>
+        
+        <p >
             <strong>Entrez dans le chat :</strong><br>
             <br>
-            <label>Entre ton pseudo : 
-                <input type="text" name="username" required="required"/>
+            <label class="info">Entre ton pseudo : 
+                <input class="name" type="text" name="username" required="required"/>
             </label>
         </p>
         <p>
-            <label>Entre ton mot de passe : 
-                <input type="password" name="password" required="required"/>
+            <label class="info">Entre ton mot de passe : 
+                <input class="mdp" type="password" name="password" required="required"/>
             </label>
         </p>
         <p>
-            <input type="submit" name="valider" required="required" />
+            <input class="submit" type="submit" name="valider" required="required" />
         </p>
         
     </form>
 <p>
     <a href="inscription.php">Tu n'es pas encore inscrit !? Clique vite ici ;) !</a>
 </p>
-
+</div>
 </body>
 </html>

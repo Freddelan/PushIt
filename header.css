@@ -1,0 +1,42 @@
+h1,
+h3 {
+    text-align: center;
+    text-shadow: 2px 2px grey;
+    color: aliceblue;
+}
+
+.pushIt {
+    font-size: 95px;
+    color: red;
+    margin-top: 80px;
+}
+
+.rsf {
+    position: relative;
+    margin-left: -1220px;
+}
+
+/* #logo {
+    position: fixed;
+    left: 10px;
+    top: 10px;
+    width: 50%;
+    height: 50%;
+} */
+
+header {
+
+    background: url(../photos/background104.png) no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 355px;
+}
+
+.horizon {
+    margin-top: 100px;
+
+}
+
+.menu {
+    color: white;
+}

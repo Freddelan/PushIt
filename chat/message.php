@@ -1,6 +1,6 @@
 <?php
 session_start();
-var_dump($_SESSION['id']);
+// var_dump($_SESSION['id']);
  $boulette= true;
  $bdd = new PDO('mysql:host=localhost;dbname=utilisateur;charset=utf8;', 'root', 'paradoxe0311');
  if(!$_SESSION['pseudo']){
@@ -15,7 +15,7 @@ var_dump($_SESSION['id']);
       
       if($user !=false){
      if(isset($_POST['envoyer']) && $boulette==true){
-          $message= htmlspecialchars($_POST['message']);
+        $message= htmlspecialchars($_POST['message']);
          $insererMessage = $bdd->prepare('INSERT INTO messages(msg, destinataire, expediteur)VALUES(?, ?, ?)');
          $insererMessage->execute(array($message, $getid, $_SESSION['id']));
          $boulette=false;
@@ -35,7 +35,8 @@ var_dump($_SESSION['id']);
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="message.css">
+    <link rel="stylesheet" href="css/message.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Message Privé</title>
 </head>
@@ -74,6 +75,15 @@ var_dump($_SESSION['id']);
     }
         ?>
             <p class="nomdesti">Vous discutez avec <?=$pseudoUser[0];?></p>
+            <div id="discussion"></div>
     </section>
+    <script type="text/javascript">
+ 
+// var auto_refresh = setInterval(
+// function ()
+// {$('#discussion').load('message.php').fadeIn("slow");}, 3000);
+// // Le réglage est ici sur 3000 milliseconds soit 3 secondes
+ 
+</script>
 </body>
 </html>

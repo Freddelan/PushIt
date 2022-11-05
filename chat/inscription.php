@@ -128,7 +128,7 @@ require('../connecter.php');
 <br>
 <br>
 <p>
-<textarea name="message" rows="8" cols="45">Tape un commentaire personel dont tu voudrais nous faire part ici...</textarea>
+<textarea name="message" rows="8" cols="45">Tape un commentaire personnel dont tu voudrais nous faire part ici...</textarea>
 </p>
 <p>
 <input type="submit" id="valider" name="valider" text="Valider l'inscription"/>
@@ -147,7 +147,7 @@ $resultat_inscription = ConnectDb2($requete_login, true);
 if(empty($nom) || empty($prenom) || empty($pseudo) || empty($pwd1) || empty($adresse)) {
     echo 'Merci de remplir tous les champs';
 }else{
-    header('Location: membre.php');
+    header('Location: ../pagePrincipale.php');
 }
 
 }

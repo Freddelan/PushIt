@@ -8,29 +8,33 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="index.css">
-    <link rel="stylesheet" type="text/html" href="cherche/je_cherche.html">
+    <link rel="stylesheet" type="text/css" href="header.css">
     <title>PushIt</title>
 </head>
 
 <body>
 
     <header>
-        <div id="logo">
+        <nav class="horizon">
+        <h1 class="pushIt">PUSH IT </h1>
+        <H3 class="rsf">RESEAU SOCIAL FAMILLIALE</H3>
+        <!-- <div id="logo">
             <a href="index.php"><img src="/Photos/tete.png.png"
                     alt="logo du site representant un bouton pour appuyer"></a>
-        </div>
-        <nav class="horizon">
+        </div> -->
+        
             <ul>
-                <li> <a href="/chat/login.php">Discussion</a></li>
-                <li> <a href="Ma_fiche.html">MA FICHE</a></li>
+                <li> <a class="menu" href="/chat/login.php">Discussion</a></li>
+                <li> <a class="menu" href="mafiche.php">MA FICHE</a></li>
             </ul>
 
-
+        </nav>
             <input id="searchbar" onkeyup="recherche()" type="text" name="search" placeholder="Recherche...">
-    </header>
+    
+</header>
     <hr>
     </hr>
-    <script src="Log/index.js"></script>
+    <!-- <script src="Log/index.js"></script> -->
 </body>
 
 </html>

@@ -1,5 +1,5 @@
 body {
-    background-image: url("../background102.jpg");
+    background-image: url("/photos/background102.png");
     background-attachment: fixed;
 }
 
@@ -16,6 +16,7 @@ body {
     display: inline;
     align-items: center;
     border: 2px solid rgb(3, 3, 3);
+    box-shadow: 4px 4px blueviolet;
     margin-left: 700px;
     margin-top: 500px;
     width: 15%;
@@ -29,6 +30,8 @@ body {
 
 #messages {
     border: 2px solid black;
+    box-shadow: 2px 2px blueviolet;
+    border-radius: 5%;
     margin-left: 350px;
     margin-top: -550px;
 

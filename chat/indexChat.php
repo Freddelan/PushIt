@@ -1,6 +1,6 @@
 <?php
 session_start();
-var_dump($_SESSION['id']);
+// var_dump($_SESSION['id']);
 $bdd = new PDO('mysql:host=localhost;dbname=utilisateur;charset=utf8;', 'root', 'paradoxe0311');
 if(!$_SESSION['pseudo']){
     header('Location: ConnexionChat.php');
@@ -12,7 +12,7 @@ if(!$_SESSION['pseudo']){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="indexChat.css">
+    <link rel="stylesheet" href="css/indexChat.css">
     <title>Tous les utilisateurs</title>
 </head>
 <body>

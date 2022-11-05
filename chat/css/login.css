@@ -1,0 +1,31 @@
+body {
+    background-image: url('/photos/background102.jpg');
+    background-attachment: fixed;
+
+}
+
+.form {
+    margin-top: 100px;
+    margin-left: 70px;
+    background-color: cornsilk;
+    display: inline-block;
+    text-align: center;
+    align-items: center;
+}
+
+.info {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.name {
+    margin-left: 150px;
+}
+
+.mdp {
+    margin-left: 113px;
+}
+
+.submit {
+    margin-left: 330px;
+}
