@@ -1,6 +1,81 @@
 <?php
+try{
+    $db = new PDO('mysql:host=localhost;dbname=upload_file', 'root', "paradoxe0311");
+}catch(PDOException $e){
+    die('Erreur connexion : '.$e->getMessage());
+}
 require('../log.php');
 require('../connecter.php');
+?>
+<?php
+// var_dump($_POST);
+// var_dump($_FILES);
+// uploade une photo
+if(isset($_FILES['avatar']) AND !empty($_FILES['avatar']['name'])) {
+    $tailleMax = 2097152;
+    $extensionsValides = array('jpg', 'jpeg', 'gif', 'png');
+    if($_FILES['avatar']['size'] <= $tailleMax) {
+       $extensionUpload = strtolower(substr(strrchr($_FILES['avatar']['name'], '.'), 1));
+       if(in_array($extensionUpload, $extensionsValides)) {
+          $chemin = "/membres/avatar/".$_SESSION['id'].".".$extensionUpload;
+          $resultat = move_uploaded_file($_FILES['avatar']['tmp_name'], $chemin);
+          if($resultat) {
+             $updateavatar = $bdd->prepare('UPDATE utilisateur SET avatar = :avatar WHERE id = :id');
+             $updateavatar->execute(array(
+                'avatar' => $_SESSION['id'].".".$extensionUpload,
+                'id' => $_SESSION['id']
+                ));
+             header('Location: profil.php?id='.$_SESSION['id']);
+          } else {
+             $msg = "Erreur durant l'importation de votre photo de profil";
+          }
+       } else {
+          $msg = "Votre photo de profil doit être au format jpg, jpeg, gif ou png";
+       }
+    } else {
+       $msg = "Votre photo de profil ne doit pas dépasser 2Mo";
+    }
+//     $tmpName = $_FILES['file']['tmp_name'];
+//     $name = $_FILES['file']['name'];
+//     $size = $_FILES['file']['size'];
+//     $error = $_FILES['file']['error'];
+// $tmpName = $_FILES['file']['tmp_name'];
+// $name = $_FILES['file']['name'];
+// $size = $_FILES['file']['size'];
+// $error = $_FILES['file']['error'];
+// move_uploaded_file($tmpName, './upload/'.$name);
+// $tabExtension = explode('.', $name);
+// $extension = strtolower(end($tabExtension));
+// //Tableau des extensions que l'on accepte
+// $extensions = ['jpg', 'png', 'jpeg', 'gif'];
+// if(in_array($extension, $extensions)){
+//     move_uploaded_file($tmpName, './upload/'.$name);
+// }
+// else{
+//     echo "Mauvaise extension";
+// }
+// //Taille max que l'on accepte
+// $maxSize = 400000;
+// if(in_array($extension, $extensions) && $size <= $maxSize){
+//     move_uploaded_file($tmpName, './upload/'.$name);
+// }
+// else{
+//     echo "Mauvaise extension ou taille trop grande";
+// }
+// if(in_array($extension, $extensions) && $size <= $maxSize && $error == 0){
+//     move_uploaded_file($tmpName, './upload/'.$name);
+// }
+// else{
+//     echo "Une erreur est survenue";
+// }
+// if(in_array($extension, $extensions) && $size <= $maxSize && $error == 0){
+//     $uniqueName = uniqid('', true);
+//     //uniqid génère quelque chose comme ca : 5f586bf96dcd38.73540086
+//     $file = $uniqueName.".".$extension;
+//     //$file = 5f586bf96dcd38.73540086.jpg
+//     move_uploaded_file($tmpName, './upload/'.$file);
+// }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,16 +83,22 @@ require('../connecter.php');
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="inscription.css">
+    <link rel="stylesheet" href="css/inscription.css">
     <title>Inscription</title>
 </head>
 <body>
     
    
-    <form class="formulaireI" method="post" action=""> 
+    <form class="formulaireI" method="post" action="" enctype="multipart/form-data"> 
+        <label for="file" required="required">Votre Photo</label>
+        <input type="file" name="avatar">
+        <button type="submit">Enregistrer</button>
+    
     <p>
     <u>Informations obligatoires :</u>
     </p>
+    <!-- <form action="index.php" method="POST" enctype="multipart/form-data"></form> -->
+        
     <p>
         <label>Entre ton nom : </label>
             <input type="text" name="nom" id="nom" />
