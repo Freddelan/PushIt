@@ -2,6 +2,7 @@
 include('header.php');
 ?>
 <link rel="stylesheet" href="pagePrincipale.css">
+
 <section>
 
         <div class="vertical">

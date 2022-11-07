@@ -1,5 +1,7 @@
 <?php
+session_start();
 require("log.php");
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -10,8 +12,8 @@ require("log.php");
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="index.css">
-    <link rel="stylesheet" type="text/html" href="cherche/je_cherche.html">
     <link rel="stylesheet" type="text/html" href="connexion.css">
+    
     <title>PushIt</title>
 </head>
 
@@ -39,13 +41,13 @@ require("log.php");
    {
     $nomUtilisateur = htmlspecialchars($_POST['username']);
     $mdp = htmlspecialchars($_POST['password']);
-
+    
     $requete_login = "SELECT nom_utilisateur, mot_de_passe FROM connexion WHERE nom_utilisateur = '".$nomUtilisateur."' AND mot_de_passe = '".$mdp."'";
     $resultat_login = connectDb2($requete_login, true);
     
     if($resultat_login){
         $_SESSION['password'] = $mdp;
-        header('Location: pagePrincipale.php');
+        header('Location: profil.php');
     }else{
         echo "Mot de passe ou pseudo incorrect";
     }
@@ -71,7 +73,7 @@ require("log.php");
     <hr>
    
     </hr>
-    <script src="Log/index.js"></script>
+    
 </body>
 
 </html>

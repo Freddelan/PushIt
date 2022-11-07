@@ -1,7 +1,11 @@
-h1,
-h3 {
+h1 {
     text-align: center;
     text-shadow: 2px 2px grey;
+    color: aliceblue;
+}
+
+h3 {
+    text-align: center;
     color: aliceblue;
 }
 
@@ -29,7 +33,7 @@ header {
     background: url(../photos/background104.png) no-repeat;
     background-size: cover;
     width: 100%;
-    height: 355px;
+    height: 500px;
 }
 
 .horizon {
@@ -40,3 +44,12 @@ header {
 .menu {
     color: white;
 }
+
+/* .lien {
+    display: inline-block;
+    /* margin-top: -50px; */
+/* margin-left: -250px;
+font-size: 50px;
+}
+
+*/

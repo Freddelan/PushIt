@@ -16,13 +16,9 @@
 
     <header>
         <nav class="horizon">
+            <p class="lien"><a  href="chat/inscription.php">Inscription</a></p>
         <h1 class="pushIt">PUSH IT </h1>
-        <H3 class="rsf">RESEAU SOCIAL FAMILLIALE</H3>
-        <!-- <div id="logo">
-            <a href="index.php"><img src="/Photos/tete.png.png"
-                    alt="logo du site representant un bouton pour appuyer"></a>
-        </div> -->
-        
+        <h3 class="rsf">RESEAU SOCIAL FAMILLIALE</h3>
             <ul>
                 <li> <a class="menu" href="/chat/login.php">Discussion</a></li>
                 <li> <a class="menu" href="mafiche.php">MA FICHE</a></li>
@@ -34,7 +30,7 @@
 </header>
     <hr>
     </hr>
-    <!-- <script src="Log/index.js"></script> -->
+   
 </body>
 
 </html>
