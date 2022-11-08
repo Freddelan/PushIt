@@ -1,6 +1,6 @@
 <?php
 session_start();
- 
+include ('header.php');
 $bdd = new PDO('mysql:host=127.0.0.1;dbname=espace_membre', 'root', 'paradoxe0311');
  
 if(isset($_GET['id']) AND $_GET['id'] > 0) {
@@ -18,6 +18,15 @@ if(isset($_GET['id']) AND $_GET['id'] > 0) {
       <div align="center">
          <h2>Profil de <?php echo $userinfo['pseudo']; ?></h2>
          <br /><br />
+         <?php
+         if(!empty($userinfo['avatar']))
+         {
+            ?>
+            <img src="membres/avatar/<?php echo $userinfo["avatar"]; ?>" alt="avatar" width="150" />
+            <?php
+         }
+         ?>
+         <br />
          Pseudo = <?php echo $userinfo['pseudo']; ?>
          <br />
          Mail = <?php echo $userinfo['mail']; ?>

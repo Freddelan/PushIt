@@ -1,10 +1,10 @@
 <?php
 session_start();
  
-$bdd = new PDO('mysql:host=127.0.0.1;dbname=utilisateur', 'root', 'paradoxe0311');
+$bdd = new PDO('mysql:host=127.0.0.1;dbname=espace_membre', 'root', 'paradoxe0311');
  
 if(isset($_SESSION['id'])) {
-   $requser = $bdd->prepare("SELECT * FROM espace_membre WHERE id = ?");
+   $requser = $bdd->prepare("SELECT * FROM membres WHERE id = ?");
    $requser->execute(array($_SESSION['id']));
    $user = $requser->fetch();
    if(isset($_POST['newpseudo']) AND !empty($_POST['newpseudo']) AND $_POST['newpseudo'] != $user['pseudo']) {
@@ -30,6 +30,31 @@ if(isset($_SESSION['id'])) {
          $msg = "Vos deux mdp ne correspondent pas !";
       }
    }
+   if(isset($_FILES['avatar']) AND !empty($_FILES['avatar']['name'])) {
+      $tailleMax = 2097152;
+      $extensionsValides = array('jpg', 'jpeg', 'gif', 'png');
+      if($_FILES['avatar']['size'] <= $tailleMax) {
+         $extensionUpload = strtolower(substr(strrchr($_FILES['avatar']['name'], '.'), 1));
+         if(in_array($extensionUpload, $extensionsValides)) {
+            $chemin = "membres/avatar/".$_SESSION['id'].".".$extensionUpload;
+            $resultat = move_uploaded_file($_FILES['avatar']['tmp_name'], $chemin);
+            if($resultat) {
+               $updateavatar = $bdd->prepare('UPDATE membres SET avatar = :avatar WHERE id = :id');
+               $updateavatar->execute(array(
+                  'avatar' => $_SESSION['id'].".".$extensionUpload,
+                  'id' => $_SESSION['id']
+                  ));
+               header('Location: profil.php?id='.$_SESSION['id']);
+            } else {
+               $msg = "Erreur durant l'importation de votre photo de profil";
+            }
+         } else {
+            $msg = "Votre photo de profil doit être au format jpg, jpeg, gif ou png";
+         }
+      } else {
+         $msg = "Votre photo de profil ne doit pas dépasser 2Mo";
+      }
+   }
 ?>
 <html>
    <head>
@@ -49,6 +74,8 @@ if(isset($_SESSION['id'])) {
                <input type="password" name="newmdp1" placeholder="Mot de passe"/><br /><br />
                <label>Confirmation - mot de passe :</label>
                <input type="password" name="newmdp2" placeholder="Confirmation du mot de passe" /><br /><br />
+               <label>Avatar :</label>
+               <input type="file" name="avatar" /><br /> <br />
                <input type="submit" value="Mettre à jour mon profil !" />
             </form>
             <?php if(isset($msg)) { echo $msg; } ?>

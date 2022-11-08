@@ -11,23 +11,23 @@ require("log.php");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="index.css">
+    <!-- <link rel="stylesheet" type="text/css" href="index.css"> -->
     <link rel="stylesheet" type="text/html" href="connexion.css">
     
     <title>PushIt</title>
 </head>
 
 <body>
-
+<!--  login de la toute premiere page -->
     
         
-        <div id="container">
+        <div id="container" align="center">
             <!-- zone de connexion -->
 
             <form action="" method="POST">
                 <h1>Connexion</h1>
 
-                <label><p>Nom d'utilisateur</p></label>
+                <label ><p color="red">Nom d'utilisateur</p></label>
                 <input type="text" placeholder="Entrer le nom d'utilisateur" name="username" required>
 
                 <label><p>Mot de passe</p></label>
@@ -47,9 +47,9 @@ require("log.php");
     
     if($resultat_login){
         $_SESSION['password'] = $mdp;
-        header('Location: profil.php');
+        header('Location: pagePrincipale.php');
     }else{
-        echo "Mot de passe ou pseudo incorrect";
+        echo  "Mot de passe ou pseudo incorrect";
     }
 
    }else{
@@ -59,17 +59,7 @@ require("log.php");
             
 ?>
             </form>
-        <!-- </div>
-        <div class="connection"><a method="POST" href="Log/log.html"></a> Se connecter</div>
-        <nav class="horizon">
-            <ul>
-                <li> <a href="Discussion.html">Discussion</a></li>
-                <li> <a href="Ma_fiche.html">MA FICHE</a></li>
-            </ul>
-
-
-            <input id="searchbar" onkeyup="recherche()" type="text" name="search" placeholder="Recherche...">
-    </header> -->
+      
     <hr>
    
     </hr>

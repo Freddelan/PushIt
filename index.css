@@ -1,16 +1,14 @@
-body {
+/* body {
   width: 1600px;
   background-color: whitesmoke;
   margin: auto;
   height: auto;
-}
+} */
 
-p {
-  margin: auto;
-}
+
 
 /*--debut du Header--*/
-header {
+/* header {
   background-color: #dbdbdb;
   font-size: 14px;
   top: 0%;
@@ -59,12 +57,12 @@ header {
 #logo #serchbar .horizon {
   display: inline-block;
   vertical-align: top;
-}
+} */
 
 /*--fin du header--*/
 
 /*--début de la barre verticale--*/
-section {
+/* section {
   position: fixed;
   background-color: #dbdbdb;
 }
@@ -88,4 +86,4 @@ section {
   display: inline-block;
   border-top: 1px solid black;
   border-bottom: 1px solid black;
-}
+} */

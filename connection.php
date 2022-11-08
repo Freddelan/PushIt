@@ -1,7 +1,7 @@
 <?php
 session_start();
  
-$bdd = new PDO('mysql:host=127.0.0.1;dbname=espace_membre', 'root', '');
+$bdd = new PDO('mysql:host=127.0.0.1;dbname=espace_membre', 'root', 'paradoxe0311');
  
 if(isset($_POST['formconnexion'])) {
    $mailconnect = htmlspecialchars($_POST['mailconnect']);
@@ -30,6 +30,7 @@ if(isset($_POST['formconnexion'])) {
       <meta charset="utf-8">
    </head>
    <body>
+      <!-- deuxième page de connection -->
       <div align="center">
          <h2>Connexion</h2>
          <br /><br />

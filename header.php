@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -15,16 +14,18 @@
 <body>
 
     <header>
-        <nav class="horizon">
-            <p class="lien"><a  href="chat/inscription.php">Inscription</a></p>
+        <p class="lien"><a  href="index2.php">Inscription</a></p>
+        
+            
         <h1 class="pushIt">PUSH IT </h1>
         <h3 class="rsf">RESEAU SOCIAL FAMILLIALE</h3>
+        <nav>
             <ul>
-                <li> <a class="menu" href="/chat/login.php">Discussion</a></li>
-                <li> <a class="menu" href="mafiche.php">MA FICHE</a></li>
+                <li> <a class="discu" href="/chat/login.php">Discussion</a></li>
+                <li> <a class="connect" href="connection.php">MA FICHE</a></li>
             </ul>
-
-        </nav>
+            </nav>
+        
             <input id="searchbar" onkeyup="recherche()" type="text" name="search" placeholder="Recherche...">
     
 </header>
