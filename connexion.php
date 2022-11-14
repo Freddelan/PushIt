@@ -1,71 +1,34 @@
 <?php
-session_start();
-require("log.php");
+session_start(); // Démarrage de la session
+require_once 'config.php';// On inclut la connexion à la base de données
 
-?>
-<!DOCTYPE html>
-<html lang="fr">
+if(!empty($_POST['email']) && !empty($_POST['password']))// Si il existe les champs email, password et qu'il sont pas vident
+{
+   $email = htmlspecialchars($_POST['email']);
+   $password = htmlspecialchars($_POST['password']);
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" type="text/css" href="index.css"> -->
-    <link rel="stylesheet" type="text/html" href="connexion.css">
-    
-    <title>PushIt</title>
-</head>
+   // $email = strtolower($email); // email transformé en minuscule
 
-<body>
-<!--  login de la toute premiere page -->
-    
-        
-        <div id="container" align="center">
-            <!-- zone de connexion -->
+// On regarde si l'utilisateur est inscrit dans la table utilisateurs
+   $check = $bdd->prepare('SELECT  email, pseudo, password FROM utilisateurs2 WHERE email= ?');
+   $check->execute(array($email));
+   $data = $check->fetch();
+   $row = $check-> rowcount();
 
-            <form action="" method="POST">
-                <h1>Connexion</h1>
-
-                <label ><p color="red">Nom d'utilisateur</p></label>
-                <input type="text" placeholder="Entrer le nom d'utilisateur" name="username" required>
-
-                <label><p>Mot de passe</p></label>
-                <input type="password" placeholder="Entrer le mot de passe" name="password"  autocomplete="off
-                " required>
-
-
-                <input type="submit" id='submit' name="valider" value='LOGIN'>
-               <?php if(isset($_POST['valider'])){
-   if(!empty($_POST['username']) AND !empty($_POST['password']))
+   // Si > à 0 alors l'utilisateur existe
+   if($row > 0)
    {
-    $nomUtilisateur = htmlspecialchars($_POST['username']);
-    $mdp = htmlspecialchars($_POST['password']);
-    
-    $requete_login = "SELECT nom_utilisateur, mot_de_passe FROM connexion WHERE nom_utilisateur = '".$nomUtilisateur."' AND mot_de_passe = '".$mdp."'";
-    $resultat_login = connectDb2($requete_login, true);
-    
-    if($resultat_login){
-        $_SESSION['password'] = $mdp;
-        header('Location: pagePrincipale.php');
-    }else{
-        echo  "Mot de passe ou pseudo incorrect";
-    }
-
-   }else{
-    echo "Veuillez compléter tous les champs";
-   }
-               }
-            
-?>
-            </form>
-      
-    <hr>
-   
-    </hr>
-    
-</body>
-
-</html>
-
-<!-- Lien expliquant la page de connection : http://www.codeurjava.com/2016/12/formulaire-de-login-avec-html-css-php-et-mysql.html -->
+       // Si le mail est bon niveau format
+       if(filter_var($email, FILTER_VALIDATE_EMAIL))
+       {
+           // Si le mot de passe est le bon
+           if(password_verify($password, $data['password']))
+           {
+                  // On créer la session et on redirige sur landing.php
+                  $_SESSION['user'] = $data['pseudo'];
+                  header('Location:landing.php');
+                  die();
+               }else{ header('Location: index.php?login_err=password'); die(); }
+           }else{ header('Location: index.php?login_err=email'); die(); }
+       }else{ header('Location: index.php?login_err=already'); die(); }
+   }else{ header('Location: index.php'); die();} // si le formulaire est envoyé sans aucune données

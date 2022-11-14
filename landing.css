@@ -1,0 +1,13 @@
+h1 {
+    text-transform: capitalize;
+
+}
+
+body {
+    background: url('photos/smiley.jpg');
+}
+
+.nav-bulle {
+    margin-left: 650px;
+    margin-top: 190px;
+}

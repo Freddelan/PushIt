@@ -1,8 +1,0 @@
-/* Attribuer une couleur verte aux champs correctement remplis */
-input:valid {
-    background-color: #ddffdd;
-}
-
-body {
-    background-color: chartreuse;
-}

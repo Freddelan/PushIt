@@ -1,7 +1,7 @@
 <?php 
 session_start();
-include('../connecter.php');
-include('../log.php');
+include('../config.php');
+
  if(isset($_POST['valider'])){
    if(!empty($_POST['username']) AND !empty($_POST['password']))
    {
