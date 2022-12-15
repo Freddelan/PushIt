@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 </head>
 <body>
-<form action="upload.php" method="post" enctype="multipart/form-data">
+<form action="landing.php" method="post" enctype="multipart/form-data">
         <p>
                 Formulaire d'envoi de fichier :<br />
                 <input type="file" name="image" /><br /><br />

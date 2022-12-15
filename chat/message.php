@@ -3,9 +3,9 @@ session_start();
 // var_dump($_SESSION['id']);
  $boulette= true;
  $bdd = new PDO('mysql:host=localhost;dbname=utilisateur;charset=utf8;', 'root', 'paradoxe0311');
- if(!$_SESSION['pseudo']){
-     header('Location: ConnexionChat.php');
- }
+//  if(!$_SESSION['pseudo']){
+//      header('Location: ConnexionChat.php');
+//  }
   if(isset($_GET['id']) AND !empty($_GET['id'])){
 
      $getid = $_GET['id'];

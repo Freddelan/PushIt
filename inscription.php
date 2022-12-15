@@ -83,10 +83,19 @@
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary btn-block">Inscription</button>
+                    <a class="LogA" href="index.php">Login</a>
                 </div>   
             </form>
         </div>
+        
         <style>
+            body {
+                 background-image: url('photos/smiley.jpg');
+            }
+            
+            a {
+                text-align: center
+            }
             .login-form {
                 width: 340px;
                 margin: 50px auto;

@@ -1,10 +1,19 @@
 a {
+    text-align: center;
     text-decoration: none;
+    display: inline-block;
+    width: 100px;
+    border: 5px outset #1C6EA4;
+    border-radius: 0px 40px 0px 40px;
 
 }
 
+a:hover {
+    background-color: cornsilk;
+}
+
 body {
-    background-image: url('/photos/background102.jpg');
+    background-image: url('/photos/smiley.jpg');
     background-attachment: fixed;
     opacity: 0.9;
 }
@@ -13,11 +22,14 @@ body {
     text-transform: uppercase;
     color: rgb(8, 1, 227);
     margin-top: 35px;
+
 }
 
 .titreIChat {
     text-transform: uppercase;
     color: chocolate;
-    margin-top: 200px;
+    /* margin-top: 200px; */
 
 }
+
+p {}

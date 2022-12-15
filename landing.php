@@ -1,6 +1,7 @@
 <?php 
     session_start();
-    require_once 'config.php'; // ajout connexion bdd 
+    require("avatar.php");
+    require_once ('config.php'); // ajout connexion bdd 
    // si la session existe pas soit si l'on est pas connecté on redirige
     if(!isset($_SESSION['user'])){
         header('Location:index.php');
@@ -21,6 +22,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="landing.css">
+    <link rel="stylesheet" href="slider.css">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
@@ -41,7 +43,9 @@
                             }
                         }
                     ?>
-
+<div>
+    
+</div>
 
                 <div class="text-center">
                         <h1 class="p-5">Bonjour <?php echo $data['pseudo']; ?> !</h1>
@@ -57,9 +61,9 @@
 
         
        <div class="nav-bulle">
-            <a  href="#" class="btn btn-warning btn-lg">Mon profil</a>
+            <a  href="monProfil.php" class="btn btn-warning btn-lg">Mon profil</a>
             <a  href="/chat/login.php" class="btn btn-success btn-lg">Chat</a>
-            <a  href="upload.php" class="btn btn-info btn-lg">Photos</a>
+            <a  href="galerie.php" class="btn btn-info btn-lg">Photos</a>
            
        </div>
 
@@ -97,7 +101,7 @@
                     </div>
                 </div>
 
-            <div class="modal fade" id="avatar" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+            <!-- <div class="modal fade" id="avatar" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -120,7 +124,19 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
+
+<div class="pl">
+	<div class="pl__outer-ring"></div>
+	<div class="pl__inner-ring"></div>
+	<div class="pl__track-cover"></div>
+	<div class="pl__ball">
+		<div class="pl__ball-texture"></div>
+		<div class="pl__ball-outer-shadow"></div>
+		<div class="pl__ball-inner-shadow"></div>
+		<div class="pl__ball-side-shadows"></div>
+	</div>
+</div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

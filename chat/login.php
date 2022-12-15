@@ -1,6 +1,9 @@
 <?php 
 session_start();
-include('../config.php');
+ include('connecterChat.php');
+ include('logchat.php');
+
+
 
  if(isset($_POST['valider'])){
    if(!empty($_POST['username']) AND !empty($_POST['password']))
@@ -9,7 +12,7 @@ include('../config.php');
     $mdp = htmlspecialchars($_POST['password']);
 
 $requete_login = "SELECT pseudo, pass1, ID_inscrit FROM inscrit WHERE pseudo = '".$nomUtilisateur."' AND pass1 = '".$mdp."'";
-$resultat_login = connectDb2($requete_login, false);
+ $resultat_login = connectDB2($requete_login, false);
 
     
     if($resultat_login){
@@ -59,7 +62,7 @@ $resultat_login = connectDb2($requete_login, false);
         
     </form>
 <p>
-    <a href="inscription.php">Tu n'es pas encore inscrit !? Clique vite ici ;) !</a>
+    <a href="../inscription.php">Tu n'es pas encore inscrit !? Clique vite ici ;) !</a>
 </p>
 </div>
 </body>
