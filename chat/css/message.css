@@ -10,6 +10,7 @@ body {
 
 .messageOut {
     color: red;
+
 }
 
 .contenue {
@@ -31,7 +32,7 @@ body {
 #messages {
     border: 2px solid black;
     box-shadow: 2px 2px blueviolet;
-    border-radius: 5%;
+    /* border-radius: 5%; */
     margin-left: 350px;
     margin-top: -550px;
 

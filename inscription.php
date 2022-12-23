@@ -62,7 +62,7 @@
                                 <strong>Erreur</strong> compte deja existant
                             </div>
                         <?php 
-
+                        
                     }
                 }
                 ?>
@@ -80,6 +80,12 @@
                 </div>
                 <div class="form-group">
                     <input type="password" name="password_retype" class="form-control" placeholder="Re-tapez le mot de passe" required="required" autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <input type="number" name="age" class="form-control" placeholder="age" required="required" autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="ville" class="form-control" placeholder="ville" required="required" autocomplete="off">
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary btn-block">Inscription</button>

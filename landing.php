@@ -27,7 +27,43 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
-        <div class="container">
+  <div class="wrapper">
+        <div class="profile-top">
+            <div class="profile-image"></div>
+        </div>
+
+        <div class="profile-bottom">
+            <div class="profile-infos">
+                <div class="main-infos">
+                    <h3 class="name"><?php echo $data['pseudo']; ?></h3>
+                    <p class="age grey"><?php echo $data['age']; ?> <br> </p>
+                    <br>
+                    
+                </div>
+                <p class="date insc">Inscrit le <?php echo $data['date_inscription']; ?></p>
+                <p class="email"><?php echo $data['email']; ?></p>
+                <p class="ville">
+                    <ion-icon name="location"></ion-icon><?php echo $data['ville']; ?>
+                </p>
+            </div>
+
+            <div class="profile-stats">
+                <div class="stat-item">
+                    <p class="stat">38K</p>
+                    <p class="grey">Abonnés</p>
+                </div>
+                <div class="stat-item">
+                    <p class="stat">103K</p>
+                    <p class="grey">Likes</p>
+                </div>
+                <div class="stat-item">
+                    <p class="stat">1.3K</p>
+                    <p class="grey">Photos</p>
+                </div>
+            </div>
+        </div>
+    </div>
+         <div class="container">
             <div class="col-md-12">
                 <?php 
                         if(isset($_GET['err'])){
@@ -42,17 +78,15 @@
                                 break; 
                             }
                         }
-                    ?>
-<div>
-    
-</div>
+                    ?> 
 
-                <div class="text-center">
+
+                 <div class="text-center">
                         <h1 class="p-5">Bonjour <?php echo $data['pseudo']; ?> !</h1>
                         <hr />
                         <a href="deconnexion.php" class="btn btn-danger btn-lg">Déconnexion</a>
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#change_password">
+                         <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#change_password">
                           Changer mon mot de passe
                         </button>
                 </div>
@@ -65,13 +99,13 @@
             <a  href="/chat/login.php" class="btn btn-success btn-lg">Chat</a>
             <a  href="galerie.php" class="btn btn-info btn-lg">Photos</a>
            
-       </div>
+       </div> 
 
         
 
                                 
         <!-- Modal -->
-        <div class="modal fade" id="change_password" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+         <div class="modal fade" id="change_password" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -99,9 +133,9 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> 
 
-            <!-- <div class="modal fade" id="avatar" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+            <div class="modal fade" id="avatar" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -124,9 +158,9 @@
                         </div>
                     </div>
                 </div>
-            </div> -->
+            </div> 
 
-<div class="pl">
+<!-- <div class="pl">
 	<div class="pl__outer-ring"></div>
 	<div class="pl__inner-ring"></div>
 	<div class="pl__track-cover"></div>
@@ -136,7 +170,7 @@
 		<div class="pl__ball-inner-shadow"></div>
 		<div class="pl__ball-side-shadows"></div>
 	</div>
-</div>
+</div> -->
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
