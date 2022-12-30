@@ -88,6 +88,10 @@
                     <input type="text" name="ville" class="form-control" placeholder="ville" required="required" autocomplete="off">
                 </div>
                 <div class="form-group">
+                
+                    <input type="file" name="avatar" class="form-control" placeholder="avatar" required="required" autocomplete="off">
+                </div>
+                <div class="form-group">
                     <button type="submit" class="btn btn-primary btn-block">Inscription</button>
                     <a class="LogA" href="index.php">Login</a>
                 </div>   

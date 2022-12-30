@@ -1,6 +1,6 @@
 <?php 
     session_start();
-    require("avatar.php");
+    
     require_once ('config.php'); // ajout connexion bdd 
    // si la session existe pas soit si l'on est pas connecté on redirige
     if(!isset($_SESSION['user'])){
@@ -14,6 +14,7 @@
     $data = $req->fetch();
    
 ?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -21,51 +22,30 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="landing.css">
+    <!-- <link rel="stylesheet" href="landing.css"> -->
     <link rel="stylesheet" href="slider.css">
+    <link rel="stylesheet" href="landing.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
-  <div class="wrapper">
-        <div class="profile-top">
-            <div class="profile-image"></div>
-        </div>
-
-        <div class="profile-bottom">
-            <div class="profile-infos">
-                <div class="main-infos">
-                    <h3 class="name"><?php echo $data['pseudo']; ?></h3>
-                    <p class="age grey"><?php echo $data['age']; ?> <br> </p>
-                    <br>
-                    
-                </div>
-                <p class="date insc">Inscrit le <?php echo $data['date_inscription']; ?></p>
-                <p class="email"><?php echo $data['email']; ?></p>
-                <p class="ville">
-                    <ion-icon name="location"></ion-icon><?php echo $data['ville']; ?>
-                </p>
-            </div>
-
-            <div class="profile-stats">
-                <div class="stat-item">
-                    <p class="stat">38K</p>
-                    <p class="grey">Abonnés</p>
-                </div>
-                <div class="stat-item">
-                    <p class="stat">103K</p>
-                    <p class="grey">Likes</p>
-                </div>
-                <div class="stat-item">
-                    <p class="stat">1.3K</p>
-                    <p class="grey">Photos</p>
-                </div>
-            </div>
-        </div>
-    </div>
-         <div class="container">
+  <div class="card">
+  <img src="<?php echo $data["avatar"]; ?>" alt="Fred" style="width:100%">
+  <h1><?php echo $data['pseudo']; ?></h1>
+  <p class="title">Membre fondateur</p>
+  <p>Harvard University</p>
+  <div style="margin: 24px 0;">
+    <a href="#"><i class="fa fa-instagram"></i></a> 
+    <a href="https://twitter.com/home"><i class="fa fa-twitter"></i></a>  
+    <a href="https://www.linkedin.com/in/frederic-delannoy-bb5167250/?originalSubdomain=fr"><i class="fa fa-linkedin"></i></a>  
+    <a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a> 
+  </div>
+  <p><button>Contact</button></p>
+</div>
+         <!-- <div class="container">
             <div class="col-md-12">
-                <?php 
+                <!-- <?php 
                         if(isset($_GET['err'])){
                             $err = htmlspecialchars($_GET['err']);
                             switch($err){
@@ -78,15 +58,15 @@
                                 break; 
                             }
                         }
-                    ?> 
+                    ?>  -->
 
 
-                 <div class="text-center">
+                 <!-- <div class="text-center">
                         <h1 class="p-5">Bonjour <?php echo $data['pseudo']; ?> !</h1>
                         <hr />
-                        <a href="deconnexion.php" class="btn btn-danger btn-lg">Déconnexion</a>
+                        <a href="deconnexion.php" class="btn btn-danger btn-lg">Déconnexion</a> -->
                         <!-- Button trigger modal -->
-                         <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#change_password">
+                         <!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#change_password">
                           Changer mon mot de passe
                         </button>
                 </div>
@@ -99,13 +79,13 @@
             <a  href="/chat/login.php" class="btn btn-success btn-lg">Chat</a>
             <a  href="galerie.php" class="btn btn-info btn-lg">Photos</a>
            
-       </div> 
+       </div>  -->
 
         
 
                                 
         <!-- Modal -->
-         <div class="modal fade" id="change_password" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+         <!-- <div class="modal fade" id="change_password" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -158,7 +138,7 @@
                         </div>
                     </div>
                 </div>
-            </div> 
+            </div>  -->
 
 <!-- <div class="pl">
 	<div class="pl__outer-ring"></div>
@@ -176,5 +156,6 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  </body>
+   
+</body>
 </html>

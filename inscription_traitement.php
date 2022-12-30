@@ -11,7 +11,7 @@
         $password_retype = htmlspecialchars($_POST['password_retype']);
         $age = htmlspecialchars($_POST['age']);
         $ville = htmlspecialchars($_POST['ville']);
-
+        $avatar = htmlspecialchars($_POST['avatar']);
         // On vérifie si l'utilisateur existe
         $check = $bdd->prepare('SELECT pseudo, email, password FROM utilisateurs2 WHERE email = ?');
         $check->execute(array($email));
@@ -40,7 +40,7 @@
                               ATTENTION
                             */
                             // On insère dans la base de données
-                            $insert = $bdd->prepare('INSERT INTO utilisateurs2(pseudo, email, password, ip, token, ville, age) VALUES(:pseudo, :email, :password, :ip, :token, :ville, :age)');
+                            $insert = $bdd->prepare('INSERT INTO utilisateurs2(pseudo, email, password, ip, token, ville, age, avatar) VALUES(:pseudo, :email, :password, :ip, :token, :ville, :age, :avatar)');
                             $insert->execute(array(
                                 'pseudo' => $pseudo,
                                 'email' => $email,
@@ -48,6 +48,7 @@
                                 'ip' => $ip,
                                  'age' => $age,
                                 'ville' => $ville,
+                                'avatar' => $avatar,
                                 'token' => bin2hex(openssl_random_pseudo_bytes(64))
                             ));
                             // On redirige avec le message de succès
