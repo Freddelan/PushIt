@@ -1,0 +1,33 @@
+body {
+    margin: 0%;
+    padding: 0%;
+    background: url("/Photos/gris.jpg");
+    background-position: cover;
+    background-color: #c4c4c4;
+}
+
+.boxInscri,
+.boxLog {
+    width: 30%;
+    height: auto;
+    border: #c4c4c4 4px solid;
+    border-radius: 5px;
+    background-color: azure;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+}
+
+.Login {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.titre {
+    text-align: center;
+}
+
+input {
+    text-align: center;
+}
